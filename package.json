@@ -1,7 +1,7 @@
 {
-  "name": "loopback-setup-hooks-mixin",
+  "name": "loopback-setup-hooks-mixins",
   "version": "1.0.0",
-  "description": "Mixin for Loopback, to easily configure operation and remote hooks from the model configuration file.",
+  "description": "Mixins for Loopback, to easily configure operation and remote hooks from the model configuration file.",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/jasmine/bin/jasmine.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devsu/loopback-setup-hooks-mixin.git"
+    "url": "git+https://github.com/devsu/loopback-setup-hooks-mixins.git"
   },
   "keywords": [
     "loopback",
@@ -24,9 +24,9 @@
   "author": "César Salazar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/devsu/loopback-setup-hooks-mixin/issues"
+    "url": "https://github.com/devsu/loopback-setup-hooks-mixins/issues"
   },
-  "homepage": "https://github.com/devsu/loopback-setup-hooks-mixin#readme",
+  "homepage": "https://github.com/devsu/loopback-setup-hooks-mixins#readme",
   "devDependencies": {
     "jasmine": "^2.5.2",
     "eslint": "^3.11.1",
