@@ -47,7 +47,7 @@ module.exports = (Model, options) => {
       methodsNames.forEach((methodName) => {
         debug('Model `%s`: setup remote hook: `%s`: `%s`', Model.modelName, key, methodName);
         let method = utils.getMethodWithName(methods, methodName);
-        setupMethod(key, method);
+        setupMethod.apply(Model, [key, method]);
       });
     });
   }
