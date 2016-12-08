@@ -2,7 +2,7 @@
 
 const mocks = require('./mocks');
 const setupOperationHooks = require('../../setup-operation-hooks');
-const operationHooks = require('./operation-hooks');
+const operationHooks = require('./hooks');
 const path = require('path');
 
 describe('setup operation hooks', () => {
@@ -22,9 +22,9 @@ describe('setup operation hooks', () => {
 
     beforeAll(() => {
       // Modifying process.cwd, to test that it will be taken into account to get the source file
-      originalCWD = process.cwd();
+      originalCWD = process.cwd;
       process.cwd = () => {
-        return path.join(originalCWD, 'spec');
+        return path.join(originalCWD(), 'spec');
       };
     });
 
@@ -34,7 +34,7 @@ describe('setup operation hooks', () => {
     });
 
     beforeEach(() => {
-      options.source = './unit/operation-hooks.js';
+      options.source = './unit/hooks.js';
     });
 
     it('Should add the hooks in the model using the methods in the file', () => {

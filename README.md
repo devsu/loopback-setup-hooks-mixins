@@ -118,12 +118,13 @@ Configures the defined remote hooks in the model.
 - source (optional)
 - beforeRemote
 - afterRemote
+- afterRemoteError
 
 ### Usage
 
-In the `beforeRemote` and `afterRemote` options, you should define an **object** that contains a map with the remote method names you want to apply the hooks to. 
+In the `beforeRemote`, `afterRemote` and `afterRemoteError` options, you should define an **object** that contains a map with the remote method names you want to apply the hooks to. 
 
-Each item of the map should contain an **array** with the names of the methods to be called.
+Each item should contain a **string** or an **array** with the name(s) of the method(s) to be called.
  
 If you define `source`, it will search the methods on that file, otherwise it will search the methods in the Model.
 
@@ -135,7 +136,10 @@ If you define `source`, it will search the methods on that file, otherwise it wi
         "deleteById": ["checkSomething", "logSomething"],
       },
       "afterRemote": {
-        "create": ["doSomething"]
+        "create": "doSomething"
+      },
+      "afterRemoteError": {
+        "create": "doSomethingElse"
       }
     }
   }
@@ -163,4 +167,4 @@ function logSomething(context, instance, next) {
 }
 ```
 
-This example is not using promises, since it looks like they are not still supported in remote hooks yet.
+This example is not using promises, since it looks like they are not supported yet for remote hooks.
