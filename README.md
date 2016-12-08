@@ -1,20 +1,15 @@
 # loopback-setup-hooks-mixins
 Mixin for Loopback, to easily configure operation and remote hooks from the model configuration file.
 
+It works with Loopback 2 and Loopback 3.
+
 ## Installation
 
 ```bash
 npm install --save loopback-setup-hooks-mixins
 ```
 
-## Available mixins
-
-- [SetupRemoteHooks](#setupremotehooks)
-- [SetupOperationHooks](#setupoperationhooks)
-
-## Usage
-
-### As a mixin (recommended)
+## Configuration
 
 First, modify your server/model-config.json to include the path to this module:
 
@@ -53,6 +48,12 @@ Then you can [use the mixins](https://loopback.io/doc/en/lb2/Defining-mixins.htm
 ...
 ```
 
+
+## Available mixins
+
+- [SetupOperationHooks](#setupoperationhooks)
+- [SetupRemoteHooks](#setupremotehooks)
+
 ## SetupOperationHooks
 
 Configures the defined operation hooks in the model.
@@ -66,7 +67,7 @@ Configures the defined operation hooks in the model.
 
 For each [operation hook](http://loopback.io/doc/en/lb3/Operation-hooks.html) that you want to configure, you will need to define a **string** or an **array** with the name(s) of the method(s) that should be called.
 
-If you define `source`, it will search the methods on that file, otherwise it will search the methods in the Model.
+If you define `source` option, it will search the methods in that file, otherwise it will search the methods in the Model.
 
 ```json
   "mixins": {
@@ -114,7 +115,7 @@ The example is using promises, but if your prefer you could use the next callbac
 
 Configures the defined remote hooks in the model.
 
-### Options:
+### Options
 - source (optional)
 - beforeRemote
 - afterRemote
@@ -122,9 +123,9 @@ Configures the defined remote hooks in the model.
 
 ### Usage
 
-In the `beforeRemote`, `afterRemote` and `afterRemoteError` options, you should define an **object** that contains a map with the remote method names you want to apply the hooks to. 
+The `beforeRemote`, `afterRemote` and `afterRemoteError` options should have the names of the remote methods you want to apply the hooks to. 
 
-Each item should contain a **string** or an **array** with the name(s) of the method(s) to be called.
+Each remote method name is an object property that should contain a **string** or an **array** with the name(s) of the method(s) to be called.
  
 If you define `source`, it will search the methods on that file, otherwise it will search the methods in the Model.
 
@@ -168,3 +169,11 @@ function logSomething(context, instance, next) {
 ```
 
 This example is not using promises, since it looks like they are not supported yet for remote hooks.
+
+## Credits
+
+Created by [c3s4r](https://github.com/c3s4r) for [Devsu](http://devsu.com/).
+
+Copyright Devsu LLC, 2016.
+
+License: MIT
