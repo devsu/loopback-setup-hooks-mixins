@@ -157,7 +157,8 @@ describe('setup remote hooks', () => {
         setupRemoteHooks(Model, options);
         expect(Model.afterRemoteError).toHaveBeenCalledTimes(3);
         expect(Model.afterRemoteError).toHaveBeenCalledWith('deleteById', Model.doSomething);
-        expect(Model.afterRemoteError).toHaveBeenCalledWith('deleteById', Model.obj.doSomethingElse);
+        expect(Model.afterRemoteError).toHaveBeenCalledWith('deleteById',
+          Model.obj.doSomethingElse);
         expect(Model.afterRemoteError).toHaveBeenCalledWith('deleteById',
           Model.hooks.otherObj.doSomethingElse);
       });
@@ -190,7 +191,8 @@ describe('setup remote hooks', () => {
         setupRemoteHooks(Model, options);
         expect(Model.afterRemoteError).toHaveBeenCalledTimes(3);
         expect(Model.afterRemoteError).toHaveBeenCalledWith('deleteById', Model.doSomething);
-        expect(Model.afterRemoteError).toHaveBeenCalledWith('deleteById', Model.obj.doSomethingElse);
+        expect(Model.afterRemoteError).toHaveBeenCalledWith('deleteById',
+          Model.obj.doSomethingElse);
         expect(Model.afterRemoteError).toHaveBeenCalledWith('deleteById',
           Model.hooks.otherObj.doSomethingElse);
       });
