@@ -11,7 +11,7 @@ npm install --save loopback-setup-hooks-mixins
 
 ## Configuration
 
-First, modify your server/model-config.json to include the path to this module:
+First, modify your `server/model-config.json` to include the path to this module:
 
 ```json
 {
@@ -25,7 +25,7 @@ First, modify your server/model-config.json to include the path to this module:
 }
 ```
 
-Then you can [use the mixins](https://loopback.io/doc/en/lb2/Defining-mixins.html#enable-a-model-with-mixins) from your model definition files:
+Then you can [use the mixins](https://loopback.io/doc/en/lb3/Defining-mixins.html#enable-a-model-with-mixins) from your model definition files:
 
 ```json
 ...
