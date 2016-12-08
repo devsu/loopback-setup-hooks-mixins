@@ -28,9 +28,10 @@
   },
   "homepage": "https://github.com/devsu/loopback-setup-hooks-mixins#readme",
   "devDependencies": {
-    "jasmine": "^2.5.2",
+    "bluebird": "^3.4.6",
     "eslint": "^3.11.1",
-    "eslint-config-loopback": "^6.0.0"
+    "eslint-config-loopback": "^6.0.0",
+    "jasmine": "^2.5.2"
   },
   "dependencies": {
     "debug": "^2.3.3",

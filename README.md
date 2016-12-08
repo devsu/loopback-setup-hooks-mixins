@@ -64,7 +64,7 @@ Configures the defined operation hooks in the model.
 
 ### Usage
 
-For each [operation hook](http://loopback.io/doc/en/lb3/Operation-hooks.html) that you want to configure, you will need to define an **array** with the names of the methods that should be called.
+For each [operation hook](http://loopback.io/doc/en/lb3/Operation-hooks.html) that you want to configure, you will need to define a **string** or an **array** with the name(s) of the method(s) that should be called.
 
 If you define `source`, it will search the methods on that file, otherwise it will search the methods in the Model.
 
@@ -72,8 +72,8 @@ If you define `source`, it will search the methods on that file, otherwise it wi
   "mixins": {
     "SetupOperationHooks": {
       "source": "./common/models/employee-hooks.js",
-      "before save": ["doSomething"],
-      "before delete": ["checkSomething"]
+      "before save": "doSomething",
+      "before delete": ["checkSomething", "doSomethingElse"]
     }
   }
 ```
@@ -85,7 +85,8 @@ const Promise = require('bluebird');
 
 module.exports = {
   doSomething,
-  checkSomething
+  checkSomething,
+  doSomethingElse,
 };
 
 function doSomething(context) {
@@ -95,6 +96,12 @@ function doSomething(context) {
 }
 
 function checkSomething(context) {
+  return new Promise((resolve, reject) => {
+    resolve();
+  });
+}
+
+function doSomethingElse(context) {
   return new Promise((resolve, reject) => {
     resolve();
   });
